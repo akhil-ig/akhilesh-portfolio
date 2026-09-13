@@ -54,6 +54,14 @@ export default function Hero() {
       <div className="h-orb glow-orb top-[-10%] right-[-5%] h-[480px] w-[480px] bg-accent/14" aria-hidden="true" />
       <div className="glow-orb bottom-[-20%] left-[-10%] h-[420px] w-[420px] bg-[#2b4a6f]/25" aria-hidden="true" />
 
+      {/* twinkling star dots */}
+      <span className="star-dot top-[18%] left-[8%] h-1.5 w-1.5 text-accent" style={{ animationDelay: '0s' }} aria-hidden="true" />
+      <span className="star-dot top-[32%] left-[42%] h-1 w-1 text-accent-2" style={{ animationDelay: '0.6s' }} aria-hidden="true" />
+      <span className="star-dot top-[12%] left-[65%] h-1 w-1 text-accent-pink" style={{ animationDelay: '1.2s' }} aria-hidden="true" />
+      <span className="star-dot top-[58%] left-[22%] h-1.5 w-1.5 text-accent-2" style={{ animationDelay: '1.8s' }} aria-hidden="true" />
+      <span className="star-dot top-[74%] left-[52%] h-1 w-1 text-accent" style={{ animationDelay: '2.4s' }} aria-hidden="true" />
+      <span className="star-dot top-[44%] left-[88%] h-1.5 w-1.5 text-accent-pink" style={{ animationDelay: '3s' }} aria-hidden="true" />
+
       {/* floating glass info cards — desktop only */}
       <div className="pointer-events-none absolute top-40 right-8 z-10 hidden w-64 rotate-2 xl:block" data-reveal data-delay="1.4">
         <div className="glass-card p-5">

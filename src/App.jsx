@@ -62,7 +62,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="noise">
+    <div className="noise starfield">
       <Nav />
       <main>
         <Hero />

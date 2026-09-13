@@ -74,6 +74,52 @@ body {
   pointer-events: none;
 }
 
+/* ---- scattered star dots ---- */
+.starfield::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  opacity: 0.65;
+  background-image:
+    radial-gradient(1.6px 1.6px at 8% 22%, rgba(236, 235, 245, 0.9), transparent),
+    radial-gradient(1.2px 1.2px at 24% 68%, rgba(69, 230, 214, 0.85), transparent),
+    radial-gradient(1.6px 1.6px at 38% 12%, rgba(143, 123, 255, 0.9), transparent),
+    radial-gradient(1.2px 1.2px at 52% 82%, rgba(255, 123, 214, 0.75), transparent),
+    radial-gradient(1.6px 1.6px at 67% 34%, rgba(236, 235, 245, 0.75), transparent),
+    radial-gradient(1.2px 1.2px at 79% 58%, rgba(69, 230, 214, 0.7), transparent),
+    radial-gradient(1.6px 1.6px at 91% 20%, rgba(143, 123, 255, 0.75), transparent),
+    radial-gradient(1.2px 1.2px at 14% 90%, rgba(255, 123, 214, 0.6), transparent),
+    radial-gradient(1.6px 1.6px at 45% 46%, rgba(236, 235, 245, 0.6), transparent),
+    radial-gradient(1.2px 1.2px at 88% 84%, rgba(69, 230, 214, 0.55), transparent);
+  background-repeat: repeat;
+  background-size: 380px 380px;
+  animation: star-drift 90s linear infinite;
+}
+@keyframes star-drift {
+  from { background-position: 0 0; }
+  to { background-position: -380px -380px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .starfield::before { animation: none; }
+}
+
+/* ---- twinkling accent dots ---- */
+.star-dot {
+  position: absolute;
+  border-radius: 9999px;
+  background: currentColor;
+  box-shadow: 0 0 8px 1px currentColor;
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .star-dot { animation: none; opacity: 0.7; }
+}
+
 /* ---- type helpers ---- */
 .label-mono {
   font-family: var(--font-mono);
