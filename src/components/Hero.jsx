@@ -54,13 +54,37 @@ export default function Hero() {
       <div className="h-orb glow-orb top-[-10%] right-[-5%] h-[480px] w-[480px] bg-accent/14" aria-hidden="true" />
       <div className="glow-orb bottom-[-20%] left-[-10%] h-[420px] w-[420px] bg-[#2b4a6f]/25" aria-hidden="true" />
 
+      {/* floating glass info cards — desktop only */}
+      <div className="pointer-events-none absolute top-40 right-8 z-10 hidden w-64 rotate-2 xl:block" data-reveal data-delay="1.4">
+        <div className="glass-card p-5">
+          <div className="flex items-center justify-between">
+            <span className="label-mono text-accent-2">MYOB Advanced</span>
+            <span className="ring-orbit h-8 w-8" style={{ '--ring-color': 'var(--color-accent-2)' }}>
+              <span className="ring-core h-4 w-4" />
+            </span>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-dim">My deepest integration specialty — full API setup, both ways.</p>
+          <div className="waveform mt-4" style={{ '--wave-color': 'var(--color-accent-2)' }}>
+            <span /><span /><span /><span /><span /><span />
+          </div>
+        </div>
+      </div>
+      <div className="pointer-events-none absolute top-88 right-24 z-10 hidden w-56 -rotate-3 xl:block" data-reveal data-delay="1.6">
+        <div className="glass-card p-5">
+          <div className="flex items-center justify-between">
+            <span className="label-mono text-accent-pink">SaaS Platforms</span>
+            <span className="ring-orbit h-8 w-8" style={{ '--ring-color': 'var(--color-accent-pink)' }}>
+              <span className="ring-core h-4 w-4" />
+            </span>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-dim">2+ years shipping billing, tenants & roles at scale.</p>
+        </div>
+      </div>
+
       <div className="relative mx-auto w-full max-w-7xl px-6 pt-32 pb-16 lg:px-10">
-        <p className="h-status label-mono mb-8 flex items-center gap-3 opacity-0">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-          </span>
-          Available for projects — India · Remote
+        <p className="h-status badge-pill mb-8 opacity-0">
+          <span className="pulse-dot text-accent" />
+          <span className="label-mono !text-inherit">Available for projects — India · Remote</span>
         </p>
 
         <h1 className="headline text-[clamp(2.3rem,8.2vw,7.2rem)] text-fog" aria-label="Akhilesh Chauhan">
@@ -81,12 +105,12 @@ export default function Hero() {
         <div className="mt-8 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <p className="h-role max-w-xl text-lg leading-relaxed text-dim opacity-0 md:text-xl">
             Full-Stack Developer with a <span className="text-fog">backend-first</span> mindset —
-            <span className="text-accent"> Laravel · PHP · SaaS</span>. I connect the platforms your
+            <span className="text-gradient font-semibold"> Laravel · PHP · SaaS</span>. I connect the platforms your
             business runs on: MYOB, NetSuite, Lightspeed, HubSpot, Shopify &amp; more.
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a href="#work" onClick={(e) => scrollToHash(e, '#work')} className="h-cta btn-accent opacity-0">
+            <a href="#work" onClick={(e) => scrollToHash(e, '#work')} className="h-cta btn-accent btn-glow opacity-0">
               View Work
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
                 <path d="M7 17L17 7M17 7H8M17 7v9" />
@@ -96,9 +120,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-px border border-line bg-line md:grid-cols-4">
+        <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4">
           {STATS.map((s) => (
-            <div key={s.label} className="h-stat bg-ink px-6 py-7 opacity-0">
+            <div key={s.label} className="h-stat glass-card px-6 py-7 opacity-0">
               <div className="headline text-4xl text-accent md:text-5xl">
                 <span className="h-num" data-value={s.value}>0</span>
                 {s.suffix}

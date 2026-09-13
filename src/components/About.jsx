@@ -22,7 +22,7 @@ const POINTS = [
 export default function About() {
   return (
     <section id="about" className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10">
-      <SectionHead index="01" label="About" title={<>Systems that <span className="text-accent">talk</span> to each other.</>} />
+      <SectionHead index="01" label="About" title={<>Systems that <span className="text-gradient">talk</span> to each other.</>} />
 
       <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr]">
         <div data-reveal>
@@ -42,10 +42,10 @@ export default function About() {
           </div>
         </div>
 
-        <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {POINTS.map((p, i) => (
-            <div key={p.title} className="bg-panel p-7" data-reveal data-delay={i * 0.08}>
-              <span className="label-mono text-accent">0{i + 1}</span>
+            <div key={p.title} className="glass-card p-7" data-reveal data-delay={i * 0.08}>
+              <span className="label-mono text-accent-2">0{i + 1}</span>
               <h3 className="mt-4 font-display text-lg font-semibold text-fog">{p.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-dim">{p.desc}</p>
             </div>

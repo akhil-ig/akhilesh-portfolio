@@ -7,18 +7,21 @@ export default function Contact() {
       <div className="glow-orb top-[20%] left-1/2 h-[420px] w-[560px] -translate-x-1/2 bg-accent/10" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-32 text-center lg:px-10">
-        <p className="label-mono mb-8" data-reveal>05 — Contact</p>
+        <p className="badge-pill label-mono mx-auto mb-8 w-fit" data-reveal>
+          <span className="pulse-dot text-accent" />
+          05 — Contact
+        </p>
         <h2 className="headline text-[clamp(2.6rem,8vw,7rem)] text-fog" data-reveal>
           Have an idea?
           <br />
-          <span className="text-accent">Let's wire it up.</span>
+          <span className="text-gradient">Let's wire it up.</span>
         </h2>
         <p className="mx-auto mt-8 max-w-lg text-lg text-dim" data-reveal>
           Whether it's a full product build or making two stubborn platforms finally talk to each
           other — one email starts it.
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-4" data-reveal>
-          <a href={`mailto:${EMAIL}`} className="btn-accent !px-9 !py-4 !text-sm">
+          <a href={`mailto:${EMAIL}`} className="btn-accent btn-glow !px-9 !py-4 !text-sm">
             {EMAIL}
           </a>
         </div>
