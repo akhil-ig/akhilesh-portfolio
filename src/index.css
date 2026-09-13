@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07070e;
+  --color-panel: #0d0d17;
+  --color-panel-2: #12121f;
+  --color-fog: #ecebf5;
+  --color-dim: #9a98b0;
+  --color-faint: #5d5b75;
+  --color-accent: #8f7bff;
+  --color-accent-dim: #6c5ce0;
+  --color-line: rgba(236, 235, 245, 0.08);
+
+  --font-display: "Unbounded", "Outfit", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-fog);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: #1f1d31; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #2c2945; }
+
+/* ---- atmosphere layers ---- */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(236, 235, 245, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236, 235, 245, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+}
+
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* ---- type helpers ---- */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+/* phone-frame for app screenshots */
+.phone-frame {
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--color-panel-2);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+}
+.phone-frame:hover {
+  transform: translateY(-6px);
+  border-color: rgba(143, 123, 255, 0.45);
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(236, 235, 245, 0.22);
+}
+
+/* ---- marquee ---- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ---- buttons / links ---- */
+.btn-accent {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-accent);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.7rem;
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
+}
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(143, 123, 255, 0.35);
+}
+
+.btn-ghost {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--color-line);
+  color: var(--color-fog);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.7rem;
+  border-radius: 2px;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-ghost:hover {
+  border-color: rgba(143, 123, 255, 0.5);
+  background: rgba(143, 123, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+.nav-link {
+  cursor: pointer;
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-dim);
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--color-accent); }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 0;
+  background: var(--color-accent);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ---- project card ---- */
+.project-card {
+  position: relative;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  overflow: hidden;
+  transition: border-color 0.35s, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover {
+  border-color: rgba(143, 123, 255, 0.4);
+  transform: translateY(-6px);
+}
+.project-card .shot {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s;
+  filter: saturate(0.85) brightness(0.92);
+}
+.project-card:hover .shot {
+  transform: scale(1.045);
+  filter: saturate(1) brightness(1);
+}
+.project-card .visit {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover .visit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- domain row ---- */
+.domain-row {
+  cursor: default;
+  border-bottom: 1px solid var(--color-line);
+  transition: background 0.3s, padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.domain-row:hover {
+  background: rgba(143, 123, 255, 0.04);
+  padding-left: 1.25rem;
+}
+.domain-row:hover .domain-name { color: var(--color-accent); }
+.domain-row .domain-name { transition: color 0.3s; }
+
+/* ---- integration chip ---- */
+.integ-card {
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
+}
+.integ-card:hover {
+  border-color: rgba(143, 123, 255, 0.45);
+  background: var(--color-panel-2);
+  transform: translateY(-4px);
+}
+
+/* ---- reveal defaults (gsap sets final state) ---- */
+[data-reveal] { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .marquee-track { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
