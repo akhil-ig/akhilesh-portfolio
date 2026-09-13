@@ -13,11 +13,12 @@ function Shot(props) {
 
 function Featured() {
   return (
-    <div className="mb-10 border border-line bg-panel" data-reveal>
+    <div className="glass-card mb-10 overflow-hidden" data-reveal>
       <div className="grid gap-0 lg:grid-cols-[1fr_1.5fr]">
         <div className="flex flex-col justify-between p-8 lg:p-10">
           <div>
-            <span className="inline-block bg-accent px-2.5 py-1 font-mono text-[0.65rem] font-semibold tracking-widest text-ink uppercase">
+            <span className="badge-pill font-mono text-[0.65rem] font-semibold tracking-widest text-accent-2 uppercase">
+              <span className="pulse-dot text-accent-2" />
               Featured Build
             </span>
             <h3 className="mt-6 font-display text-2xl font-semibold text-fog lg:text-3xl">
@@ -71,7 +72,7 @@ function ProjectCard({ p, i }) {
           loading="lazy"
           className="shot h-full w-full object-cover object-top"
         />
-        <span className="visit absolute right-4 bottom-4 inline-flex items-center gap-2 bg-accent px-3 py-1.5 font-mono text-[0.7rem] font-semibold tracking-widest text-ink uppercase">
+        <span className="visit absolute right-4 bottom-4 inline-flex items-center gap-2 bg-gradient-to-r from-accent to-accent-2 px-3 py-1.5 font-mono text-[0.7rem] font-semibold tracking-widest text-ink uppercase">
           Visit
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
             <path d="M7 17L17 7M17 7H8M17 7v9" />
@@ -118,9 +119,9 @@ export default function Projects() {
 
       <div className="mt-16" data-reveal>
         <p className="label-mono mb-6">Private / In-house systems</p>
-        <div className="grid gap-px border border-line bg-line md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
           {SYSTEMS.map((s) => (
-            <div key={s.name} className="integ-card !border-0 bg-panel p-7">
+            <div key={s.name} className="glass-card p-7">
               <div className="flex items-center gap-3">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent" aria-hidden="true">
                   <rect x="4" y="10" width="16" height="10" rx="1.5" />

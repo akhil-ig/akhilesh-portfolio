@@ -20,19 +20,19 @@ export default function Nav() {
   }, [])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-ink/85 backdrop-blur-md border-b border-line' : 'bg-transparent'
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 lg:px-8">
+      <nav
+        className={`glass-card mx-auto flex max-w-6xl items-center justify-between !rounded-full px-5 py-3 transition-shadow duration-300 ${
+          scrolled ? 'shadow-[0_10px_40px_-20px_rgba(143,123,255,0.5)]' : ''
+        }`}
+      >
         <a
           href="#top"
           onClick={(e) => scrollToHash(e, '#top')}
           className="font-mono text-sm font-semibold tracking-widest text-fog"
           aria-label="Back to top"
         >
-          AC<span className="text-accent">._</span>
+          AC<span className="text-gradient">._</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -62,7 +62,7 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-line bg-ink/95 backdrop-blur-md md:hidden">
+        <div className="glass-card mx-auto mt-2 max-w-6xl !rounded-3xl md:hidden">
           <ul className="flex flex-col gap-5 px-6 py-6">
             {NAV_LINKS.map((l) => (
               <li key={l.href}>

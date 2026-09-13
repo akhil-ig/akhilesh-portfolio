@@ -10,6 +10,7 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Domains from './components/Domains'
 import Integrations from './components/Integrations'
+import CtaBanner from './components/CtaBanner'
 import Contact from './components/Contact'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -70,6 +71,9 @@ export default function App() {
         <Projects />
         <Domains />
         <Integrations />
+        <div className="py-20">
+          <CtaBanner />
+        </div>
         <Contact />
       </main>
     </div>

@@ -7,8 +7,7 @@ export default function Marquee() {
       <div className="marquee-track">
         {items.map((t, i) => (
           <span key={i} className="flex shrink-0 items-center" aria-hidden={i >= TECH.length}>
-            <span className="font-mono text-sm tracking-[0.18em] text-dim uppercase">{t}</span>
-            <span className="mx-8 text-accent" aria-hidden="true">✦</span>
+            <span className="badge-pill mx-2 font-mono text-sm tracking-[0.1em] text-dim uppercase">{t}</span>
           </span>
         ))}
       </div>

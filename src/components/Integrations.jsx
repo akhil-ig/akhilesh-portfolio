@@ -7,19 +7,22 @@ export default function Integrations() {
       <SectionHead
         index="04"
         label="Integration Lab"
-        title={<>The <span className="text-accent">API whisperer</span> section.</>}
+        title={<>The <span className="text-gradient">API whisperer</span> section.</>}
         right="Accounting, ERP, POS and CRM platforms — wired into Shopify, WordPress and custom Laravel apps."
       />
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {INTEGRATIONS.map((it, i) => (
-          <div key={it.name} className="integ-card p-7" data-reveal data-delay={i * 0.08}>
+          <div key={it.name} className="glass-card p-7" data-reveal data-delay={i * 0.08}>
             <div className="flex items-center justify-between">
               <span
                 className={`font-mono text-[0.65rem] tracking-widest uppercase ${
-                  it.level === 'Expert' ? 'bg-accent px-2 py-0.5 font-semibold text-ink' : 'text-faint'
+                  it.level === 'Expert'
+                    ? 'badge-pill !py-1 !px-2.5 font-semibold text-accent-2'
+                    : 'text-faint'
                 }`}
               >
+                {it.level === 'Expert' && <span className="pulse-dot text-accent-2" />}
                 {it.level}
               </span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent" aria-hidden="true">
@@ -37,7 +40,7 @@ export default function Integrations() {
         <span className="label-mono">Connected with</span>
         <span className="inline-block h-px w-8 bg-accent/50" aria-hidden="true" />
         {INTEGRATION_TARGETS.map((t) => (
-          <span key={t} className="border border-line bg-panel px-4 py-2 font-mono text-xs tracking-wider text-fog uppercase">
+          <span key={t} className="badge-pill font-mono text-xs tracking-wider text-fog uppercase">
             {t}
           </span>
         ))}

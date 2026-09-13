@@ -9,7 +9,10 @@
   --color-faint: #5d5b75;
   --color-accent: #8f7bff;
   --color-accent-dim: #6c5ce0;
+  --color-accent-2: #45e6d6;
+  --color-accent-pink: #ff7bd6;
   --color-line: rgba(236, 235, 245, 0.08);
+  --color-glass-border: rgba(236, 235, 245, 0.14);
 
   --font-display: "Unbounded", "Outfit", sans-serif;
   --font-sans: "Outfit", sans-serif;
@@ -213,29 +216,144 @@ body {
   transform: translateY(0);
 }
 
-/* ---- domain row ---- */
-.domain-row {
-  cursor: default;
-  border-bottom: 1px solid var(--color-line);
-  transition: background 0.3s, padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+/* ---- glassmorphism ---- */
+.glass-card {
+  position: relative;
+  border: 1px solid var(--color-glass-border);
+  background: linear-gradient(160deg, rgba(236, 235, 245, 0.07), rgba(236, 235, 245, 0.02));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, box-shadow 0.35s, background 0.35s;
 }
-.domain-row:hover {
-  background: rgba(143, 123, 255, 0.04);
-  padding-left: 1.25rem;
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(143, 123, 255, 0.4);
+  box-shadow: 0 24px 60px -20px rgba(143, 123, 255, 0.35);
+  background: linear-gradient(160deg, rgba(236, 235, 245, 0.1), rgba(236, 235, 245, 0.03));
 }
-.domain-row:hover .domain-name { color: var(--color-accent); }
-.domain-row .domain-name { transition: color 0.3s; }
 
-/* ---- integration chip ---- */
-.integ-card {
-  border: 1px solid var(--color-line);
-  background: var(--color-panel);
-  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
+/* ---- gradient text ---- */
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-accent) 10%, var(--color-accent-2) 55%, var(--color-accent-pink) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.integ-card:hover {
-  border-color: rgba(143, 123, 255, 0.45);
-  background: var(--color-panel-2);
-  transform: translateY(-4px);
+
+/* ---- badge pill ---- */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--color-glass-border);
+  background: rgba(236, 235, 245, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  padding: 0.5rem 1rem 0.5rem 0.85rem;
+}
+.pulse-dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.5rem;
+  width: 0.5rem;
+  flex: none;
+}
+.pulse-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: currentColor;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-dot::after {
+  content: "";
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background: currentColor;
+}
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  70% { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ---- rotating orbit ring (icon accent) ---- */
+.ring-orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.ring-orbit::before,
+.ring-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1.5px dashed color-mix(in oklab, var(--ring-color, var(--color-accent)) 55%, transparent);
+}
+.ring-orbit::before {
+  animation: spin-slow 22s linear infinite;
+}
+.ring-orbit::after {
+  inset: 14%;
+  border-style: solid;
+  border-color: color-mix(in oklab, var(--ring-color, var(--color-accent)) 25%, transparent);
+  animation: spin-slow 16s linear infinite reverse;
+}
+.ring-orbit .ring-core {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--ring-color, var(--color-accent)) 35%, var(--color-panel-2)), var(--color-panel-2));
+  box-shadow: 0 0 40px -8px color-mix(in oklab, var(--ring-color, var(--color-accent)) 70%, transparent);
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---- mini waveform accent ---- */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+.waveform span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--wave-color, var(--color-accent));
+  animation: wave 1.15s ease-in-out infinite;
+}
+.waveform span:nth-child(1) { height: 40%; animation-delay: -1.05s; }
+.waveform span:nth-child(2) { height: 90%; animation-delay: -0.85s; }
+.waveform span:nth-child(3) { height: 55%; animation-delay: -0.65s; }
+.waveform span:nth-child(4) { height: 100%; animation-delay: -0.45s; }
+.waveform span:nth-child(5) { height: 65%; animation-delay: -0.25s; }
+.waveform span:nth-child(6) { height: 35%; animation-delay: -0.05s; }
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .waveform span { animation: none; transform: scaleY(0.7); }
+}
+
+/* ---- glow button pulse ---- */
+.btn-glow {
+  box-shadow: 0 0 0 rgba(143, 123, 255, 0.4);
+  animation: glow-pulse 3.2s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 18px -4px rgba(143, 123, 255, 0.45); }
+  50% { box-shadow: 0 0 34px -2px rgba(143, 123, 255, 0.75); }
 }
 
 /* ---- reveal defaults (gsap sets final state) ---- */
@@ -244,5 +362,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   .marquee-track { animation: none; }
+  .ring-orbit::before, .ring-orbit::after, .pulse-dot::before, .btn-glow { animation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
