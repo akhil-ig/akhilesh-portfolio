@@ -93,4 +93,7 @@ export const INTEGRATIONS = [
 
 export const INTEGRATION_TARGETS = ['Shopify', 'WordPress', 'Custom Laravel Apps']
 
-export const EMAIL = 'akhilesh@saasintegrator.com'
+export const EMAIL = 'akhileshdevloper@gmail.com'
+export const PHONE = '+91 95791 72752'
+export const PHONE_LINK = 'tel:+919579172752'
+export const LINKEDIN = 'https://www.linkedin.com/in/akhilesh-chauhan-895b8a249/'
