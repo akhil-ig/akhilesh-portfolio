@@ -139,12 +139,12 @@ export default function Hero() {
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="h-scroll absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0" aria-hidden="true">
-        <div className="flex flex-col items-center gap-2">
-          <span className="label-mono">Scroll</span>
-          <span className="block h-8 w-px animate-pulse bg-accent/60" />
+        <div className="h-scroll mt-16 flex justify-center opacity-0" aria-hidden="true">
+          <div className="flex flex-col items-center gap-2">
+            <span className="label-mono">Scroll</span>
+            <span className="block h-8 w-px animate-pulse bg-accent/60" />
+          </div>
         </div>
       </div>
     </section>
