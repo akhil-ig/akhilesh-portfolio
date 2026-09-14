@@ -57,14 +57,24 @@ export const PROJECTS = [
 export const FEATURED = {
   name: 'SSPOC Attendance & Payroll',
   tagline: 'One system. Admin panel + employee mobile app.',
-  desc: 'QR-code based attendance with shift rules, leave workflows, salary structures and payroll — a full HR engine. Admins get a command-center dashboard; employees scan, apply for leave and track history from their phone.',
-  admin: '/shots/sspoc-admin.png',
-  mobiles: [
-    { src: '/shots/sspoc-home.png', alt: 'Employee app — home & mark attendance' },
-    { src: '/shots/sspoc-history.png', alt: 'Employee app — attendance history calendar' },
-    { src: '/shots/sspoc-leave.png', alt: 'Employee app — leave application' },
+  desc: 'A full HR engine built from scratch — QR-code attendance, shift rules, leave workflows, salary structures and payroll. Admins run everything from a command-center dashboard; employees scan in, apply for leave and track their history from their phone.',
+  hero: { src: '/shots/sspoc-laptop.webp', alt: 'SSPOC admin dashboard shown on a laptop' },
+  features: [
+    { icon: 'qr', label: 'QR Check-in', note: 'Scan & mark in seconds' },
+    { icon: 'clock', label: 'Shift Rules', note: 'Rosters, late & overtime logic' },
+    { icon: 'calendar', label: 'Leave Workflows', note: 'Apply, approve, track balance' },
+    { icon: 'wallet', label: 'Payroll Engine', note: 'Salary structures to payslips' },
   ],
-  tags: ['QR Attendance', 'Leave Management', 'Payroll', 'Shift Rules', 'Mobile App'],
+  app: {
+    src: '/shots/sspoc-app-banner.webp',
+    alt: 'SSPOC Attendance employee app — mark attendance, history calendar and leave screens',
+    caption: 'Employee Mobile App',
+  },
+  screens: [
+    { src: '/shots/sspoc-admin-dash.webp', alt: 'Admin dashboard — attendance overview', caption: 'Admin — Dashboard' },
+    { src: '/shots/sspoc-admin-employees.webp', alt: 'Admin panel — employee directory', caption: 'Admin — Employees' },
+  ],
+  tags: ['QR Attendance', 'Leave Management', 'Payroll', 'Shift Rules', 'Mobile App', 'Laravel'],
 }
 
 export const SYSTEMS = [

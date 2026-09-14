@@ -22,7 +22,7 @@ export default function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 lg:px-8">
       <nav
-        className={`glass-card mx-auto flex max-w-6xl items-center justify-between !rounded-full px-5 py-3 transition-shadow duration-300 ${
+        className={`glass-card nav-glass mx-auto flex max-w-6xl items-center justify-between !rounded-full px-5 py-3 transition-shadow duration-300 ${
           scrolled ? 'shadow-[0_10px_40px_-20px_rgba(143,123,255,0.5)]' : ''
         }`}
       >
@@ -62,7 +62,7 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div className="glass-card mx-auto mt-2 max-w-6xl !rounded-3xl md:hidden">
+        <div className="glass-card nav-glass mx-auto mt-2 max-w-6xl !rounded-3xl md:hidden">
           <ul className="flex flex-col gap-5 px-6 py-6">
             {NAV_LINKS.map((l) => (
               <li key={l.href}>

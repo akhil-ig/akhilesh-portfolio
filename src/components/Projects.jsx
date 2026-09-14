@@ -1,59 +1,6 @@
 import SectionHead from './SectionHead'
-import { PROJECTS, SYSTEMS, FEATURED } from '../data'
-
-const PENDING =
-  'data:image/svg+xml;utf8,' +
-  encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400"><rect width="640" height="400" fill="#12121f"/><text x="320" y="196" fill="#5d5b75" font-family="monospace" font-size="15" letter-spacing="4" text-anchor="middle">SCREENSHOT</text><text x="320" y="222" fill="#5d5b75" font-family="monospace" font-size="15" letter-spacing="4" text-anchor="middle">COMING SOON</text></svg>`
-  )
-
-function Shot(props) {
-  return <img {...props} onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = PENDING }} />
-}
-
-function Featured() {
-  return (
-    <div className="glass-card mb-10 overflow-hidden" data-reveal>
-      <div className="grid gap-0 lg:grid-cols-[1fr_1.5fr]">
-        <div className="flex flex-col justify-between p-8 lg:p-10">
-          <div>
-            <span className="badge-pill font-mono text-[0.65rem] font-semibold tracking-widest text-accent-2 uppercase">
-              <span className="pulse-dot text-accent-2" />
-              Featured Build
-            </span>
-            <h3 className="mt-6 font-display text-2xl font-semibold text-fog lg:text-3xl">
-              {FEATURED.name}
-            </h3>
-            <p className="mt-2 font-mono text-xs tracking-wider text-accent uppercase">{FEATURED.tagline}</p>
-            <p className="mt-5 text-sm leading-relaxed text-dim">{FEATURED.desc}</p>
-          </div>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {FEATURED.tags.map((t) => (
-              <span key={t} className="border border-line px-2.5 py-1 font-mono text-[0.68rem] tracking-wider text-dim uppercase">
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="border-t border-line bg-panel-2 p-4 lg:border-t-0 lg:border-l">
-          <Shot
-            src={FEATURED.admin}
-            alt="SSPOC admin dashboard — attendance system"
-            loading="lazy"
-            className="w-full border border-line object-cover"
-          />
-          <div className="mt-4 grid grid-cols-3 gap-4">
-            {FEATURED.mobiles.map((m) => (
-              <div key={m.src} className="phone-frame">
-                <Shot src={m.src} alt={m.alt} loading="lazy" className="aspect-[9/16] w-full object-cover object-top" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+import Featured from './Featured'
+import { PROJECTS, SYSTEMS } from '../data'
 
 function ProjectCard({ p, i }) {
   return (
