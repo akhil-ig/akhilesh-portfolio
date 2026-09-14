@@ -27,4 +27,7 @@ Animated developer-portfolio for Akhilesh Chauhan (Full-Stack Laravel/PHP dev, S
 ## Notes
 
 - Live-site screenshots in `public/shots/` were captured with playwright-core + system Chrome (`channel: 'chrome'`), viewport 1440×900; squareedgeconsulting.com needs ~9s extra wait for its loader.
-- Owner profile (portfolio content source): 6+ yrs PHP/Laravel; 2+ yrs SaaS; integrations expert — MYOB Advanced (expert), Lightspeed, NetSuite, HubSpot ↔ Shopify/WordPress; domains: fintech, PMS, e-commerce, ERP, POS, inventory, hospital software, attendance+payroll; tech: Livewire, Vue, WebRTC, Bootstrap, Tailwind; email akhilesh@saasintegrator.com.
+- Owner profile (portfolio content source): 6+ yrs PHP/Laravel; 2+ yrs SaaS; integrations expert — MYOB Advanced (expert), Lightspeed, NetSuite, HubSpot ↔ Shopify/WordPress; domains: fintech, PMS, e-commerce, ERP, POS, inventory, hospital software, attendance+payroll; tech: Livewire, Vue, WebRTC, Bootstrap, Tailwind.
+- Contact details for the site live in `src/data.js` (EMAIL / PHONE / LINKEDIN). **Never put his employer's
+  domain or company name anywhere in this portfolio** — it is his personal site, and the company domain
+  that appears in some tooling contexts is his employer's, not his. Use his personal Gmail only.
