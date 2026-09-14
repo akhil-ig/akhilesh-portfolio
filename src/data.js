@@ -1,3 +1,7 @@
+// Files in public/ aren't rewritten by Vite, so they need the base prefix
+// themselves — without it they 404 when the site is served from a subpath.
+const asset = (path) => import.meta.env.BASE_URL + path
+
 export const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Work', href: '#work' },
@@ -24,7 +28,7 @@ export const PROJECTS = [
     name: 'CloudLink Systems',
     url: 'https://cloudlinksys.in/',
     domain: 'cloudlinksys.in',
-    shot: '/shots/cloudlinksys.webp',
+    shot: asset('shots/cloudlinksys.webp'),
     desc: 'Corporate platform for an IT & cloud solutions company — designed, built and shipped end-to-end.',
     tags: ['Full-Stack', 'PHP', 'Responsive'],
   },
@@ -32,7 +36,7 @@ export const PROJECTS = [
     name: 'SS Physiotherapy & Ortho Care',
     url: 'https://ssphysiotherapyandorthocare.in/',
     domain: 'ssphysiotherapyandorthocare.in',
-    shot: '/shots/ssphysio.webp',
+    shot: asset('shots/ssphysio.webp'),
     desc: 'Clinic website plus a complete private admin panel — appointments, patients and clinic operations in one dashboard.',
     tags: ['Laravel', 'Admin Panel', 'Healthcare'],
   },
@@ -40,7 +44,7 @@ export const PROJECTS = [
     name: 'VSS Logistic',
     url: 'https://vsslogistic.co.in/',
     domain: 'vsslogistic.co.in',
-    shot: '/shots/vsslogistic.webp',
+    shot: asset('shots/vsslogistic.webp'),
     desc: 'Fast-loading static corporate site for a logistics company — clean sections, service pages, enquiry flow.',
     tags: ['Static', 'Bootstrap', 'Logistics'],
   },
@@ -48,7 +52,7 @@ export const PROJECTS = [
     name: 'SquareEdge Consulting',
     url: 'https://squareedgeconsulting.com/',
     domain: 'squareedgeconsulting.com',
-    shot: '/shots/squareedge.webp',
+    shot: asset('shots/squareedge.webp'),
     desc: 'Static website for a global recruitment consulting firm — crisp identity, conversion-focused layout.',
     tags: ['Static', 'HTML / CSS', 'Recruitment'],
   },
@@ -58,7 +62,7 @@ export const FEATURED = {
   name: 'SSPOC Attendance & Payroll',
   tagline: 'One system. Admin panel + employee mobile app.',
   desc: 'A full HR engine built from scratch — QR-code attendance, shift rules, leave workflows, salary structures and payroll. Admins run everything from a command-center dashboard; employees scan in, apply for leave and track their history from their phone.',
-  hero: { src: '/shots/sspoc-laptop.webp', alt: 'SSPOC admin dashboard shown on a laptop' },
+  hero: { src: asset('shots/sspoc-laptop.webp'), alt: 'SSPOC admin dashboard shown on a laptop' },
   features: [
     { icon: 'qr', label: 'QR Check-in', note: 'Scan & mark in seconds' },
     { icon: 'clock', label: 'Shift Rules', note: 'Rosters, late & overtime logic' },
@@ -66,13 +70,13 @@ export const FEATURED = {
     { icon: 'wallet', label: 'Payroll Engine', note: 'Salary structures to payslips' },
   ],
   app: {
-    src: '/shots/sspoc-app-banner.webp',
+    src: asset('shots/sspoc-app-banner.webp'),
     alt: 'SSPOC Attendance employee app — mark attendance, history calendar and leave screens',
     caption: 'Employee Mobile App',
   },
   screens: [
-    { src: '/shots/sspoc-admin-dash.webp', alt: 'Admin dashboard — attendance overview', caption: 'Admin — Dashboard' },
-    { src: '/shots/sspoc-admin-employees.webp', alt: 'Admin panel — employee directory', caption: 'Admin — Employees' },
+    { src: asset('shots/sspoc-admin-dash.webp'), alt: 'Admin dashboard — attendance overview', caption: 'Admin — Dashboard' },
+    { src: asset('shots/sspoc-admin-employees.webp'), alt: 'Admin panel — employee directory', caption: 'Admin — Employees' },
   ],
   tags: ['QR Attendance', 'Leave Management', 'Payroll', 'Shift Rules', 'Mobile App', 'Laravel'],
 }
