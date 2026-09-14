@@ -16,17 +16,30 @@ Animated developer-portfolio for Akhilesh Chauhan (Full-Stack Laravel/PHP dev, S
 - Owner's taste: colorful, effect-heavy, maximalist — vivid gradients (violet + cyan/pink), glassmorphism (backdrop-blur frosted cards), glows, generous animations. His own product (SSPOC app) uses indigo→purple gradients. Show bold versions and iterate on reaction; he dislikes option-picker dialogs.
 - Respect `prefers-reduced-motion` (already wired in App.jsx + CSS).
 
-## Pending work (priority order)
+## Deployment
 
-1. **Glassmorphism + more-colorful redesign** — owner's explicit last feedback: "aur attractive, glass effect, colorful, aur animations". Not started.
-2. SSPOC screenshots missing: owner must add `public/shots/sspoc-admin.png`, `sspoc-home.png`, `sspoc-history.png`, `sspoc-leave.png`. Featured card in `src/components/Projects.jsx` auto-falls-back to a "coming soon" SVG until then.
-3. `npm run build` never run yet — test before deploy.
-4. Deploy target: Hostinger Business plan (supports Vite/React Node web apps).
-5. Admin panel (admin.ssphysiotherapyandorthocare.in) inner screenshots — owner logs in himself; Claude must never enter credentials.
+Live at **https://akhil-ig.github.io/akhilesh-portfolio/** via GitHub Pages.
+`.github/workflows/deploy.yml` builds and deploys on every push to `main` — nothing to do by hand.
+
+`base: './'` plus the `asset()` helper in `src/data.js` keep the same build working at both a repo
+subpath and a domain root, so adding a custom domain later needs no rebuild config change.
+
+Pending: owner is claiming **akki.is-a.dev** (free) — PR to `is-a-dev/register` with a CNAME to
+`akhil-ig.github.io`. Once merged, add `public/CNAME` containing `akki.is-a.dev` and set the custom
+domain in repo settings. Note: is-a.dev's README asks people **not** to use AI to generate the
+request JSON, so let the owner write that file himself.
+
+## Pending work
+
+1. Admin panel (admin.ssphysiotherapyandorthocare.in) inner screenshots — owner logs in himself; Claude must never enter credentials.
+2. More real screenshots for the remaining private systems (hospital software, etc.) if he wants them showcased.
 
 ## Notes
 
-- Live-site screenshots in `public/shots/` were captured with playwright-core + system Chrome (`channel: 'chrome'`), viewport 1440×900; squareedgeconsulting.com needs ~9s extra wait for its loader.
+- Screenshots in `public/shots/` are all webp. Live-site shots were captured with playwright-core +
+  system Chrome (`channel: 'chrome'`) at 1440×900; squareedgeconsulting.com needs ~9s extra wait for its
+  loader. SSPOC images came from the owner (laptop + 3-phone mockups he made) and were downscaled to
+  webp via a canvas pass in headless Chrome — same trick works for any future image.
 - Owner profile (portfolio content source): 6+ yrs PHP/Laravel; 2+ yrs SaaS; integrations expert — MYOB Advanced (expert), Lightspeed, NetSuite, HubSpot ↔ Shopify/WordPress; domains: fintech, PMS, e-commerce, ERP, POS, inventory, hospital software, attendance+payroll; tech: Livewire, Vue, WebRTC, Bootstrap, Tailwind.
 - Contact details for the site live in `src/data.js` (EMAIL / PHONE / LINKEDIN). **Never put his employer's
   domain or company name anywhere in this portfolio** — it is his personal site, and the company domain
